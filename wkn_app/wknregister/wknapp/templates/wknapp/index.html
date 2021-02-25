@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="section">
+        <div class="container">
+            <h1>和研注文app</h1>
+                <form action="{% url 'home' %}" method="POST">
+                    <p>品名を選択して下さい</p>
+                    <input type="text" name="title" list="thing">
+                       <datalist id ="thing"> 
+                           {%for k,v in equipments.items%}
+                           <option value=品名:{{k}},値段:{{v}}></option>
+                           {%endfor%}
+                       </datalist>
+                    <p>個数を選択して下さい</p>
+                    <input type="number" name="many">
+                    {% csrf_token %}
+                    <button type="submit">注文する</button>
+                </form>
+                {%if title%}
+                <h1>prediction: {{title}}</h1>
+                {%endif%}
+              <div id="app" class="columns"><!-- React --></div>
+        </div>
+      </section>
+</body>
+{% load static %}
+<script src="{% static 'wknapp/main.js' %}"></script>
+</html>
