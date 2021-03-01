@@ -40,7 +40,7 @@ def signup(request):
     return render(request, 'signup.html', {'form': form})
         
 def index(request):
-    context={'equipments':{"apple":"170","banana":"178"}}
+    context={'equipments':{'パスツールピペット9ディスポーザブル(IK-PAS-9P）': 1936,'Nuncイージーディッシュ\u300035ｍｍ': 11880}}
     if request.method=="GET":
         return render(
             request,
