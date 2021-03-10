@@ -31,13 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'wknapp',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'wknapp',
 ]
 
 MIDDLEWARE = [
@@ -121,4 +121,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 LOGIN_URL = 'login' # ログインしていないときのリダイレクト先
 LOGIN_REDIRECT_URL = 'home' # ログイン後のリダイレクト先
-LOGOUT_REDIRECT_URL = 'home' # ログアウト後のリダイレクト先
+LOGOUT_REDIRECT_URL = 'index' # ログアウト後のリダイレクト先

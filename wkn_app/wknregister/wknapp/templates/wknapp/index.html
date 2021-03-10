@@ -1,38 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+ 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wknapp</title>
+    <meta charset="utf-8" />
+    <title>トップ画面</title>
 </head>
+ 
 <body>
-    <a href="{% url 'logout' %}">ログアウト</a>
-    <section class="section">
-        <div class="container">
-            <h1>和研注文app</h1>
-            
-                <p>{{user.username}}でログイン中</p>
-                
-                <form action="{% url 'home' %}" method="POST">
-                    <p>品名を選択して下さい</p>
-                    <input type="text" name="title" list="thing">
-                       <datalist id ="thing"> 
-                           {%for k,v in equipments.items%}
-                           <option value=品名:{{k}},値段:{{v}}></option>
-                           {%endfor%}
-                       </datalist>
-                    <p>個数を選択して下さい</p>
-                    <input type="number" name="many">
-                    <p>注文者名</p>
-                    <input type="text" name="username" value={{user.username}}>
-                    {% csrf_token %}
-                    <button type="submit">注文する</button>
-                </form>
-              <div id="app" class="columns"><!-- React --></div>
-        </div>
-      </section>
+    <h1>トップ画面</h1>
+ 
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'logout' %}">ログアウト</a></p>
+    {% else %}
+    <p><a href="{% url 'login' %}">ログイン</a></p>
+    {% endif %}
+    <a href="{% url 'create' %}">新規登録</a>
 </body>
-{% load static %}
-<script src="{% static 'wknapp/main.js' %}"></script>
+ 
 </html>
