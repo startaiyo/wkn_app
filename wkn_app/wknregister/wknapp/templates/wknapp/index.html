@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 {% block title %}{{ block.super }} top{% endblock %}
 {% block content %}
-    <h1>トップ画面</h1>
+<div class="bg-light p-3 p-sm-5 my-4 rounded">
+    <h1>和研注文app</h1>
+    <p>スプレッドシートのコピペ作業から解放されましょう！</p>
  
     {% if user.is_authenticated %}
-    <p><a href="{% url 'logout' %}">ログアウト</a></p>
+    <a href="{% url 'logout' %}"class="btn btn-primary btn-lg">ログアウト</a>
     {% else %}
-    <p><a href="{% url 'login' %}">ログイン</a></p>
+    <a href="{% url 'login' %}"class="btn btn-primary btn-lg">ログイン</a>
     {% endif %}
-    <a href="{% url 'create' %}">新規登録</a>
+    <a href="{% url 'create' %}"class="btn btn-primary btn-lg">新規登録</a>
+</div>
 {% endblock %}

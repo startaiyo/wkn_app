@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ block.super }} create form{% endblock %}
 {% block content %}
-    <p>新規ユーザーの作成</p>
+    <h1 style=" padding: 0.5em; color: #010101; background: #eaf3ff; border-bottom: solid 3px #516ab6;">新規ユーザーの作成</h1>
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
