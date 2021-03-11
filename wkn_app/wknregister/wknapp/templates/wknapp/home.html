@@ -1,31 +1,32 @@
 {% extends "base.html" %}
 {% block title %}{{ block.super }} order form{% endblock %}
 {% block content %}
-    <a href="{% url 'logout' %}">ログアウト</a>
-    <section class="section">
-        <div class="container">
-            <h1>和研注文app</h1>
+ 
+    
+        <div class="mx-auto" style="width: 300px;">
+            <h1 style=" padding: 0.5em; color: #010101; background: #eaf3ff; border-bottom: solid 3px #516ab6;">和研注文app</h1>
             
                 <p>{{user.username}}でログイン中</p>
                 
                 <form action="{% url 'index' %}" method="POST">
-                    <p>品名を選択して下さい</p>
+                    <p style="  padding: 0.25em 0.5em; color: #494949; background: transparent; border-left: solid 5px #7db4e6;">品名を選択して下さい</p>
                     <input type="text" name="title" list="thing">
                        <datalist id ="thing"> 
                            {%for k,v in equipments.items%}
                            <option value=品名:{{k}},値段:{{v}}></option>
                            {%endfor%}
                        </datalist>
-                    <p>個数を選択して下さい</p>
+                    <p style="  margin:10px 0px; padding: 0.25em 0.5em; color: #494949; background: transparent; border-left: solid 5px #7db4e6;">個数を選択して下さい</p>
                     <input type="number" name="many">
-                    <p>注文者名</p>
+                    <p style="  margin:10px 0px; padding: 0.25em 0.5em; color: #494949; background: transparent; border-left: solid 5px #7db4e6;">注文者名</p>
                     <input type="text" name="username" value={{user.username}}>
                     {% csrf_token %}
-                    <button type="submit">注文する</button>
+                    <button type="submit" class="btn btn-secondary">注文する</button>
                 </form>
                 {{ msg }}
-              <div id="app" class="columns"><!-- React --></div>
+    　　　　　<a href="{% url 'logout' %}" class="btn btn-primary" style="margin:10px">ログアウト</a>
+            <div id="app" class="columns"><!-- React --></div>
         </div>
-      </section>
+      
 {% endblock %}
 
