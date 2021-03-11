@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wknapp</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}{{ block.super }} order form{% endblock %}
+{% block content %}
     <a href="{% url 'logout' %}">ログアウト</a>
     <section class="section">
         <div class="container">
@@ -33,7 +27,5 @@
               <div id="app" class="columns"><!-- React --></div>
         </div>
       </section>
-</body>
-{% load static %}
-<script src="{% static 'wknapp/main.js' %}"></script>
-</html>
+{% endblock %}
+

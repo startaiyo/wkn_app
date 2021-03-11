@@ -6,7 +6,6 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 import os
 from django.contrib.auth.decorators import login_required
-from . import forms
 from django.views.generic import CreateView # 追記
 from django.contrib.auth.forms import UserCreationForm  # 追記
 from django.urls import reverse_lazy
