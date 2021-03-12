@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView # 追記
 from django.contrib.auth.forms import UserCreationForm  # 追記
 from django.urls import reverse_lazy
-
+from .equipdict import *
 class UserCreateView(CreateView):
     form_class = UserCreationForm
     template_name = "wknapp/create.html"
@@ -17,7 +17,7 @@ class UserCreateView(CreateView):
 
 @login_required
 def home (request):
-    context={'equipments':{'パスツールピペット9ディスポーザブル(IK-PAS-9P）': 1936,'Nuncイージーディッシュ\u300035ｍｍ': 11880}}
+    context={'equipments':equipments}
     return render(request, 'wknapp/home.html', context)
         
 def index(request):
@@ -53,9 +53,6 @@ def index(request):
         return render(
                 request,
                 "wknapp/home.html",
-                context= { 'msg' :msg }
+                context= { 'msg' :msg, 'equipments':equipments, 'title1':title[0]+"を", 'title2':title[2]+"個" }
             )
 
-def user_logout(request):
-    logout(request)
-    return redirect('user:index')

@@ -3,7 +3,7 @@
 {% block content %}
  
     
-        <div class="mx-auto" style="width: 300px;">
+        <div class="mx-auto" style="width: 350px;">
             <h1 style=" padding: 0.5em; color: #010101; background: #eaf3ff; border-bottom: solid 3px #516ab6;">和研注文app</h1>
             
                 <p>{{user.username}}でログイン中</p>
@@ -23,7 +23,7 @@
                     {% csrf_token %}
                     <button type="submit" class="btn btn-secondary">注文する</button>
                 </form>
-                {{ msg }}
+                {{ title1 }}{{ title2 }}{{ msg }}
     　　　　　<a href="{% url 'logout' %}" class="btn btn-primary" style="margin:10px">ログアウト</a>
             <div id="app" class="columns"><!-- React --></div>
         </div>
